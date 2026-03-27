@@ -1,13 +1,16 @@
-let minutes = document.getElementById('minutes')
+const icons = document.querySelectorAll(".icons") 
+let minutes = document.getElementById("minutes")
 let seconds = document.getElementById("seconds")
 let min = 0;
 let sec = 0;
+let intervalo;
 
 // changing the minute number with icon
 function click_minutes_up() {
     if (min < 60){
         min += 5;
         minutes.textContent = min
+        console.log(minutes)
     }
 }
 function click_minutes_down() {
@@ -32,9 +35,37 @@ function click_seconds_down() {
 }
 
 function reset() {
+    document.querySelectorAll(".icons").forEach(icons => {
+        icons.style.display = "block";
+    });
     sec = 0
     min = 0
     minutes.textContent = 0;
     seconds.textContent = 0;
+    clearInterval(intervalo);
 }
 
+function start() {
+    document.querySelectorAll(".icons").forEach(icons => {
+        icons.style.display = "none";
+    });
+    
+    clearInterval(intervalo);
+
+    intervalo = setInterval(() => {
+        valor_seconds = Number(seconds.textContent);
+        valor_minutes = Number(minutes.textContent);
+        if (valor_minutes == 0 && valor_seconds == 0) {
+            clearInterval(intervalo)
+            return;
+        }
+        valor_seconds--;
+   
+        if (valor_seconds < 0) {
+            valor_minutes--;
+            valor_seconds = 59;
+        }
+        seconds.textContent = valor_seconds
+        minutes.textContent = valor_minutes
+    }, 1000);
+}

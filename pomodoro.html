@@ -11,24 +11,24 @@
         <div class="circle">
             <div class="container-clock">
                 <div class="clock_minutes_up">
-                    <img onclick="click_minutes_up()" src="images\up_arrow.svg" alt="up">
-                        <span id="minutes">0</span> 
-                    <img onclick="click_minutes_down()" src="images\down_arrow.svg" alt="down">
+                    <img class="icons" onclick="click_minutes_up()" src="images\up_arrow.svg" alt="up">
+                        <h1 id="minutes">0</h1> 
+                    <img class="icons" onclick="click_minutes_down()" src="images\down_arrow.svg" alt="down">
                 </div>
 
-                <span>:</span> 
+                <h1>:</h1> 
 
                 <div class="clock_seconds_down">
-                    <img onclick="click_seconds_up()" src="images\up_arrow.svg" alt="up">
-                        <span id="seconds">0</span> 
-                    <img onclick="click_seconds_down()" src="images\down_arrow.svg" alt="down">
+                    <img class="icons" onclick="click_seconds_up()" src="images\up_arrow.svg" alt="up">
+                        <h1 id="seconds">0</h1> 
+                    <img class="icons" onclick="click_seconds_down()" src="images\down_arrow.svg" alt="down">
                 </div>
             </div>
         </div>
 
         <div class="buttons-pomodoro">
             <button onclick= "reset()">Reset</button>
-            <button>Start</button>
+            <button onclick= "start()">Start</button>
         </div>
     </div>
 
