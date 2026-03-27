@@ -7,22 +7,27 @@
     <title>Pomodoro</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container-all">
         <div class="circle">
-            <div class="clock-change-up">
-                <img onclick= "click_up()" src="images\keyboard_arrow_up.svg" alt="up">
-                <img onclick= "click_up()" src="images\keyboard_arrow_up.svg" alt="up">
-                <img onclick= "click_up()" src="images\keyboard_arrow_up.svg" alt="up">
-            </div>
-            <h1>00:00:00</h1>
-            <div class="clock-change-down">
-                <img onclick= "click_down()" src="images\keyboard_arrow_down.svg" alt="down">
-                <img onclick= "click_down()" src="images\keyboard_arrow_down.svg" alt="down">
-                <img onclick= "click_down()" src="images\keyboard_arrow_down.svg" alt="down">
+            <div class="container-clock">
+                <div class="clock_minutes_up">
+                    <img onclick="click_minutes_up()" src="images\keyboard_arrow_up.svg" alt="up">
+                        <span id="minutes">0</span> 
+                    <img onclick="click_minutes_down()" src="images\keyboard_arrow_down.svg" alt="down">
+                </div>
+
+                <span>:</span> 
+
+                <div class="clock_seconds_down">
+                    <img onclick="click_seconds_up()" src="images\keyboard_arrow_up.svg" alt="up">
+                        <span id="seconds">0</span> 
+                    <img onclick="click_seconds_down()" src="images\keyboard_arrow_down.svg" alt="down">
+                </div>
             </div>
         </div>
+
         <div class="buttons-pomodoro">
-            <button>Reset</button>
+            <button onclick= "reset()">Reset</button>
             <button>Start</button>
         </div>
     </div>
