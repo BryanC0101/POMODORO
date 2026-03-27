@@ -1,9 +1,23 @@
-const icons = document.querySelectorAll(".icons") 
-let minutes = document.getElementById("minutes")
-let seconds = document.getElementById("seconds")
+const icons = document.querySelectorAll(".icons"); 
+let minutes = document.getElementById("minutes");
+let seconds = document.getElementById("seconds");
 let min = 0;
 let sec = 0;
 let intervalo;
+let working = false;
+const startPause = document.getElementById('startAndPause');
+    startPause.addEventListener("click", () => {
+    if (working) {
+        clearInterval(intervalo);
+        intervalo = null;
+        working = false;
+        startPause.innerHTML = '<img src="images/pause.svg" width="80">';
+    } else {
+        start();
+        working = true;
+        startPause.innerHTML = '<img src="images/play.svg" width="80">'
+    }
+    });
 
 // changing the minute number with icon
 function click_minutes_up() {
@@ -43,6 +57,8 @@ function reset() {
     minutes.textContent = 0;
     seconds.textContent = 0;
     clearInterval(intervalo);
+    working = false;
+    startPause.innerHTML = 'Start';
 }
 
 function start() {
@@ -68,4 +84,4 @@ function start() {
         seconds.textContent = valor_seconds
         minutes.textContent = valor_minutes
     }, 1000);
-}
+} 
