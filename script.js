@@ -31,4 +31,10 @@ function click_seconds_down() {
     }
 }
 
+function reset() {
+    sec = 0
+    min = 0
+    minutes.textContent = 0;
+    seconds.textContent = 0;
+}
 
