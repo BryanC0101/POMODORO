@@ -79,6 +79,7 @@ function start() {
         valor_minutes = Number(minutes.textContent);
         if (valor_minutes == 0 && valor_seconds == 0) {
             clearInterval(intervalo)
+            document.getElementById("alarm").play();
             return;
         }
         valor_seconds--;
