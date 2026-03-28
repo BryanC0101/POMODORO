@@ -1,0 +1,1 @@
+Fazendo um projeto simples de pomodoro para entender setInterval, melhorar design (UI e UX) e aprender a respeito da adição de áudios em uma aplicação, fazendo uma divertida integração de músicas para se ouvir enquanto usa o app, prática muito comum entre estudantes.
