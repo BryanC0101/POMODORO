@@ -2,7 +2,11 @@ const icons = document.querySelectorAll(".icons");
 let minutes = document.getElementById("minutes");
 let seconds = document.getElementById("seconds");
 const player = document.getElementById("player");
-const musicSpans = document.querySelectorAll(".container-musics span");
+const musicSpans = document.querySelectorAll("#container-musics span");
+const sideBar = document.getElementById("sidebar");
+const playlistBtn = document.getElementById("music-button");
+const closeBtn = document.getElementById("closeBtn");
+const main = document.querySelector(".main");
 let min = 0;
 let sec = 0;
 let intervalo;
@@ -88,14 +92,31 @@ function start() {
     }, 1000);
 } 
 
+
 for (const span of musicSpans) {
     span.addEventListener("click", () => {
+
+        if (span.classList.contains("active")) {
+            player.pause();
+            span.classList.remove("active");
+            return;
+        }
+        
         player.pause();
         player.src = "music/" + span.id + ".mp3";
-
         player.play();
 
         musicSpans.forEach(s => s.classList.remove("active"));
         span.classList.add("active");
     })
 }
+
+playlistBtn.addEventListener("click", () => {
+    sideBar.classList.toggle("active");
+    main.classList.toggle("shifted");
+});
+
+closeBtn.addEventListener("click", () => {
+    sideBar.classList.toggle("active");
+    main.classList.toggle("shifted");
+});
