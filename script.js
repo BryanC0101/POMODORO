@@ -1,6 +1,8 @@
 const icons = document.querySelectorAll(".icons"); 
 let minutes = document.getElementById("minutes");
 let seconds = document.getElementById("seconds");
+const player = document.getElementById("player");
+const musicSpans = document.querySelectorAll(".container-musics span");
 let min = 0;
 let sec = 0;
 let intervalo;
@@ -85,3 +87,15 @@ function start() {
         minutes.textContent = valor_minutes
     }, 1000);
 } 
+
+for (const span of musicSpans) {
+    span.addEventListener("click", () => {
+        player.pause();
+        player.src = "music/" + span.id + ".mp3";
+
+        player.play();
+
+        musicSpans.forEach(s => s.classList.remove("active"));
+        span.classList.add("active");
+    })
+}
